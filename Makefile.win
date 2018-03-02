@@ -1,0 +1,52 @@
+# Project: Berlinas
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = Principal.o ciudad.o pasajero.o bus.o asignacion.o boleto.o confort.o plus.o ruta.o
+LINKOBJ  = Principal.o ciudad.o pasajero.o bus.o asignacion.o boleto.o confort.o plus.o ruta.o
+LIBS     = -L"D:/Archivos de programa/Dev-Cpp/MinGW64/lib" -L"D:/Archivos de programa/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+INCS     = -I"D:/Archivos de programa/Dev-Cpp/MinGW64/include" -I"D:/Archivos de programa/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Archivos de programa/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"D:/Archivos de programa/Dev-Cpp/MinGW64/include" -I"D:/Archivos de programa/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Archivos de programa/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/Archivos de programa/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = Berlinas.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+Principal.o: Principal.cpp
+	$(CPP) -c Principal.cpp -o Principal.o $(CXXFLAGS)
+
+ciudad.o: ciudad.cpp
+	$(CPP) -c ciudad.cpp -o ciudad.o $(CXXFLAGS)
+
+pasajero.o: pasajero.cpp
+	$(CPP) -c pasajero.cpp -o pasajero.o $(CXXFLAGS)
+
+bus.o: bus.cpp
+	$(CPP) -c bus.cpp -o bus.o $(CXXFLAGS)
+
+asignacion.o: asignacion.cpp
+	$(CPP) -c asignacion.cpp -o asignacion.o $(CXXFLAGS)
+
+boleto.o: boleto.cpp
+	$(CPP) -c boleto.cpp -o boleto.o $(CXXFLAGS)
+
+confort.o: confort.cpp
+	$(CPP) -c confort.cpp -o confort.o $(CXXFLAGS)
+
+plus.o: plus.cpp
+	$(CPP) -c plus.cpp -o plus.o $(CXXFLAGS)
+
+ruta.o: ruta.cpp
+	$(CPP) -c ruta.cpp -o ruta.o $(CXXFLAGS)
